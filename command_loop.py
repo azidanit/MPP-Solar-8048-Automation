@@ -49,8 +49,19 @@ client.username_pw_set(user, password=password)    #set username and password
 client.on_connect= on_connect                      #attach function to callback
 client.on_message= on_message                      #attach function to callback
   
-client.connect(broker_address, port=port)          #connect to broker
-  
+
+is_mqtt_connected = False
+
+while not is_mqtt_connected:
+    try:
+        is_mqtt_connected = True
+        client.connect(broker_address, port=port)          #connect to broker
+    except:
+        is_mqtt_connected = False
+        print("cannot connect")
+        time.sleep(1)
+    
+
 client.loop_start()        #start the loop
   
 while Connected != True:    #Wait for connection
