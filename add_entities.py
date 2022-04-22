@@ -14,7 +14,7 @@ while True:
         txt_ = "mosquitto_pub -r -h 192.168.1.102 -u sonoff -P sonoff -t \"homeassistant/sensor/mppsolar_8048_{}/config\" -m \'{{\"name\": \"MPP-Solar_8084_{}\", \"state_topic\": \"inver4/status/{}/value\"}}'"
         jadi_ = txt_.format(without_unit_split[q*2], without_unit_split[q*2], without_unit_split[q*2])
         print(jadi_)
-        # os.system(jadi_)
+        os.system(jadi_)
         time.sleep(1)
     
     for i in range(len(spliiter)//3):
@@ -23,7 +23,7 @@ while True:
         # print(txt.format(spliiter[i*3], spliiter[i*3], spliiter[i*3], spliiter[i*3+2]))
         jadi = txt.format(spliiter[i*3], spliiter[i*3], spliiter[i*3], spliiter[i*3+2])
         print(jadi)
-        # os.system(jadi)
+        os.system(jadi)
         time.sleep(1)
 
     time.sleep(60*5)
