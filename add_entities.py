@@ -6,7 +6,7 @@ string_to_ext = 'ac_input_voltage 221.5 V ac_input_frequency 50.0 Hz ac_output_v
 spliiter = string_to_ext.split(' ')
 
 
-without_unit = 'device_mode Line'
+without_unit = 'device_mode Line inverter_charge_status absorb'
 without_unit_split = without_unit.split(' ')
 
 while True:
