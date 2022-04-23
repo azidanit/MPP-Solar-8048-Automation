@@ -54,7 +54,7 @@ def on_message(client, userdata, message):
         if message.payload.decode() == "PCP03":
             os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP03")
 
-    if message.topic.decode() == "homeassistant/sensor/inverter_1":
+    if message.topic.decode() == "homeassistant/sensor/inverter_2":
         if message.payload.decode() == "POP00":
             os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP00")
         if message.payload.decode() == "POP01":
