@@ -20,57 +20,60 @@ def on_message(client, userdata, message):
     print("Message received: ", message.payload)
     print("Message Topic: ", message.topic)
 
-    if message.topic.decode() == "homeassistant/sensor/inverter_3":
+    if message.topic == "homeassistant/sensor/inverter_3":
         print("EXEC inv3")
-    #     if message.payload.decode() == "POP00":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c POP00")
-    #     if message.payload.decode() == "POP01":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c POP01")
-    #     if message.payload.decode() == "POP02":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c POP02")
+        if message.payload.decode() == "POP00":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c POP00")
+        if message.payload.decode() == "POP01":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c POP01")
+        if message.payload.decode() == "POP02":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c POP02")
         
-    #     if message.payload.decode() == "PCP00":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP00")
-    #     if message.payload.decode() == "PCP01":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP01")
-    #     if message.payload.decode() == "PCP02":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP02")
-    #     if message.payload.decode() == "PCP03":
-    #         os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP03")
+        if message.payload.decode() == "PCP00":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP00")
+        if message.payload.decode() == "PCP01":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP01")
+        if message.payload.decode() == "PCP02":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP02")
+        if message.payload.decode() == "PCP03":
+            os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP03")
     
-    # if message.topic.decode() == "homeassistant/sensor/inverter_1":
-    #     if message.payload.decode() == "POP00":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c POP00")
-    #     if message.payload.decode() == "POP01":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c POP01")
-    #     if message.payload.decode() == "POP02":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c POP02")
+    if message.topic == "homeassistant/sensor/inverter_1":
+        print("EXEC inv1")
+        if message.payload.decode() == "POP00":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c POP00")
+        if message.payload.decode() == "POP01":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c POP01")
+        if message.payload.decode() == "POP02":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c POP02")
         
-    #     if message.payload.decode() == "PCP00":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP00")
-    #     if message.payload.decode() == "PCP01":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP01")
-    #     if message.payload.decode() == "PCP02":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP02")
-    #     if message.payload.decode() == "PCP03":
-    #         os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP03")
+        if message.payload.decode() == "PCP00":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP00")
+        if message.payload.decode() == "PCP01":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP01")
+        if message.payload.decode() == "PCP02":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP02")
+        if message.payload.decode() == "PCP03":
+            os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP03")
 
-    # if message.topic.decode() == "homeassistant/sensor/inverter_2":
-    #     if message.payload.decode() == "POP00":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP00")
-    #     if message.payload.decode() == "POP01":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP01")
-    #     if message.payload.decode() == "POP02":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP02")
+    if message.topic == "homeassistant/sensor/inverter_2":
+        print("EXEC inv2")
+
+        if message.payload.decode() == "POP00":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP00")
+        if message.payload.decode() == "POP01":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP01")
+        if message.payload.decode() == "POP02":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c POP02")
         
-    #     if message.payload.decode() == "PCP00":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP00")
-    #     if message.payload.decode() == "PCP01":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP01")
-    #     if message.payload.decode() == "PCP02":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP02")
-    #     if message.payload.decode() == "PCP03":
-    #         os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP03")
+        if message.payload.decode() == "PCP00":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP00")
+        if message.payload.decode() == "PCP01":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP01")
+        if message.payload.decode() == "PCP02":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP02")
+        if message.payload.decode() == "PCP03":
+            os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP03")
 
 
 
