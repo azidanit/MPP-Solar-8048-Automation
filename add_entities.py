@@ -26,7 +26,7 @@ while True:
         print(string_5048_setting_split[i*3], string_5048_setting_split[(3*i)+2])
         txt = "mosquitto_pub -r -h 192.168.1.102 -u sonoff -P sonoff -t \"homeassistant/sensor/mppsolar_5048_1_conf_{}/config\" -m \'{{\"name\": \"MPP-Solar_5048_1_conf_{}\", \"state_topic\": \"inver1_conf/status/{}/value\", \"unit_of_measurement\": \"{}\"" + "}}'"
         # print(txt.format(string_8048_split[i*3], string_8048_split[i*3], string_8048_split[i*3], string_8048_split[i*3+2]))
-        jadi = txt.format(string_5048_split[i*3], string_5048_split[i*3], string_5048_split[i*3], string_5048_split[i*3+2])
+        jadi = txt.format(string_5048_setting_split[i*3], string_5048_setting_split[i*3], string_5048_setting_split[i*3], string_5048_setting_split[i*3+2])
         print(jadi)
         os.system(jadi)
         time.sleep(1)
@@ -63,7 +63,7 @@ while True:
         print(string_5048_setting_split[i*3], string_5048_setting_split[(3*i)+2])
         txt = "mosquitto_pub -r -h 192.168.1.102 -u sonoff -P sonoff -t \"homeassistant/sensor/mppsolar_5048_2_conf_{}/config\" -m \'{{\"name\": \"MPP-Solar_5048_2_conf_{}\", \"state_topic\": \"inver2_conf/status/{}/value\", \"unit_of_measurement\": \"{}\"" + "}}'"
         # print(txt.format(string_8048_split[i*3], string_8048_split[i*3], string_8048_split[i*3], string_8048_split[i*3+2]))
-        jadi = txt.format(string_5048_split[i*3], string_5048_split[i*3], string_5048_split[i*3], string_5048_split[i*3+2])
+        jadi = txt.format(string_5048_setting_split[i*3], string_5048_setting_split[i*3], string_5048_setting_split[i*3], string_5048_setting_split[i*3+2])
         print(jadi)
         os.system(jadi)
         time.sleep(1)
