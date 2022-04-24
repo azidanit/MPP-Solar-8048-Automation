@@ -47,7 +47,7 @@ while True:
 
     ############## 5048 2 #############
 
-    if counter_another_status >= 3:
+    if counter_another_status >= 1:
         print("PUSH Another")
 
         os.system("mpp-solar -p /dev/ttyUSB0 -c QPIWS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver4 -P PI30MAX -o mqtt")
