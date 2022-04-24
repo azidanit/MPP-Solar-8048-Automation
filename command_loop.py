@@ -37,6 +37,10 @@ def on_message(client, userdata, message):
             os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP02")
         if message.payload.decode() == "PCP03":
             os.system("mpp-solar -p /dev/ttyUSB0 -P PI30 -c PCP03")
+        
+        command_str = message.payload.decode()
+        full_str_cmd = "mpp-solar -p /dev/ttyUSB0 -P PI30 -c " + command_str
+        os.system(full_str_cmd)
     
     if message.topic == "homeassistant/sensor/inverter_1":
         print("EXEC inv1")
@@ -55,6 +59,11 @@ def on_message(client, userdata, message):
             os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP02")
         if message.payload.decode() == "PCP03":
             os.system("mpp-solar -p /dev/hidraw0 -P PI30 -c PCP03")
+
+        command_str = message.payload.decode()
+        full_str_cmd = "mpp-solar -p /dev/hidraw0 -P PI30 -c " + command_str
+        os.system(full_str_cmd)
+    
 
     if message.topic == "homeassistant/sensor/inverter_2":
         print("EXEC inv2")
@@ -75,7 +84,9 @@ def on_message(client, userdata, message):
         if message.payload.decode() == "PCP03":
             os.system("mpp-solar -p /dev/hidraw1 -P PI30 -c PCP03")
 
-
+        command_str = message.payload.decode()
+        full_str_cmd = "mpp-solar -p /dev/hidraw1 -P PI30 -c " + command_str
+        os.system(full_str_cmd)
 
   
 Connected = False   #global variable for the state of the connection
