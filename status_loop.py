@@ -24,6 +24,8 @@ def inverter1_status():
         time.sleep(0.5)
         os.system("mpp-solar -p /dev/hidraw0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver1_conf -o mqtt")
         time.sleep(0.5)
+        os.system("mpp-solar -p /dev/hidraw0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver1_conf -o mqtt")
+        time.sleep(0.5)
 
         print("PUSH 5048 1 conf Done")
 
@@ -48,6 +50,8 @@ def inverter2_status():
         os.system("mpp-solar -p /dev/hidraw1 -c QPIWS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver2 -o mqtt")
         time.sleep(0.5)
         os.system("mpp-solar -p /dev/hidraw1 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver2_conf -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/hidraw0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver1_conf -o mqtt")
         time.sleep(0.5)
         print("PUSH 5048 2 conf Done")
 
