@@ -3,18 +3,7 @@ import time
 # import subprocess
 import os
   
-def on_connect(client, userdata, flags, rc):
-  
-    if rc == 0:
-  
-        print("Connected to broker")
-  
-        global Connected                #Use global variable
-        Connected = True                #Signal connection 
-  
-    else:
-  
-        print("Connection failed")
+
   
 def on_message(client, userdata, message):
     print("Message received: ", message.payload)
@@ -95,14 +84,34 @@ def on_message(client, userdata, message):
         os.system(full_str_cmd)
 
   
+
+def on_connect(client, userdata, flags, rc):
+  
+    if rc == 0:
+  
+        print("Connected to broker")
+  
+        global Connected                #Use global variable
+        Connected = True                #Signal connection 
+
+        client.on_message= on_message 
+        client.subscribe("homeassistant/sensor/inverter_3")
+        client.subscribe("homeassistant/sensor/inverter_1")
+        client.subscribe("homeassistant/sensor/inverter_2")
+  
+    else:
+  
+        print("Connection failed")
+
 Connected = False   #global variable for the state of the connection
   
 broker_address= "192.168.1.102"  #Broker address
+# broker_address= "localhost"  #Broker address
 port = 1883                       #Broker port
 user = "sonoff"                    #Connection username
 password = "sonoff"            #Connection password
   
-client = mqttClient.Client("Python")               #create new instance
+client = mqttClient.Client("Python",clean_session=False)               #create new instance
 client.username_pw_set(user, password=password)    #set username and password
 client.on_connect= on_connect                      #attach function to callback
 client.on_message= on_message                      #attach function to callback
@@ -120,15 +129,18 @@ while not is_mqtt_connected:
         time.sleep(1)
     
 
-client.loop_start()        #start the loop
-  
-while Connected != True:    #Wait for connection
-    time.sleep(0.1)
+
   
 client.subscribe("homeassistant/sensor/inverter_3")
 client.subscribe("homeassistant/sensor/inverter_1")
 client.subscribe("homeassistant/sensor/inverter_2")
   
+
+client.loop_forever()        #start the loop
+  
+while Connected != True:    #Wait for connection
+    time.sleep(0.1)
+
 try:
     while True:
         time.sleep(1)
