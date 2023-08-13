@@ -7,14 +7,14 @@ Type=simple
 User=ubuntu
 Group=ubuntu
 WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
-ExecStart=/home/ubuntu/miniforge3/envs/iot_mpp8048/bin/python \
+ExecStart=/bin/bash -c "source /home/ubuntu/miniforge3/bin/activate && conda activate iot_mpp8048 && \
 /home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/5048/command_loop.py \
 --broker 192.168.1.102 \
 --port 1883 \
 --user sonoff \
 --password sonoff \
 --device_addr /dev/hidraw1 \
---topic homeassistant/sensor/inverter_2
+--topic homeassistant/sensor/inverter_2"
 Restart=on-failure
 RestartSec=10
 
