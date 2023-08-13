@@ -4,11 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-User=azidanit
-Group=azidanit
-WorkingDirectory=/home/azidanit/MPP-Solar-8048-Automation/5048
-ExecStart=/home/azidanit/anaconda3/envs/lmesh_aggrigation_tester/bin/python3 \
-/home/azidanit/MPP-Solar-8048-Automation/5048/command_loop.py \
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
+ExecStart=/home/ubuntu/miniforge3/envs/iot_mpp8048/bin/python \
+/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/5048/command_loop.py \
 --broker 192.168.1.102 \
 --port 1883 \
 --user sonoff \

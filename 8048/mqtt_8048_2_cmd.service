@@ -4,11 +4,11 @@ After=network.target
 
 [Service]
 Type=simple
-User=your_username
-Group=your_group
-WorkingDirectory=/path/to/script/directory
-ExecStart=/usr/bin/python \
-/path/to/your/script.py \
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
+ExecStart=/home/ubuntu/miniforge3/envs/iot_mpp8048/bin/python \
+/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/8048/command_loop.py \
 --broker 192.168.1.102 \
 --port 1883 \
 --user sonoff \
