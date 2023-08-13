@@ -12,21 +12,21 @@ def inverter1_status(broker_address, port, user, password, device_addr, tag):
     while True:
         print("PUSH 5048 1")
         os.system("mpp-solar -p {device_addr} -c QPIGS -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
         os.system("mpp-solar -p {device_addr} -c QMOD -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
         os.system("mpp-solar -p {device_addr} -c QPIGS -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
         os.system("mpp-solar -p {device_addr} -c QMOD -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
         print("PUSH 5048 1 Done")
 
         os.system("mpp-solar -p {device_addr} -c QPIWS -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
         os.system("mpp-solar -p {device_addr} -c QPIRI -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag}_conf -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
         os.system("mpp-solar -p {device_addr} -c QPIRI -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag}_conf -o mqtt".format(device_addr=device_addr, broker_addr=broker_address, port=port, user=user, password=password, tag=tag))
-        time.sleep(0.5)
+        time.sleep(5)
 
         print("PUSH 5048 1 conf Done")
     ############## 5048 1 #############
