@@ -4,17 +4,17 @@ After=network.target
 
 [Service]
 Type=simple
-User=your_username
-Group=your_group
-WorkingDirectory=/path/to/script/directory
-ExecStart=/usr/bin/python
-/path/to/your/script.py
---broker 192.168.1.102
---port 1883
---user sonoff
---password sonoff
---device_addr /dev/hidraw0
---topic homeassistant/sensor/inverter_1
+User=azidanit
+Group=azidanit
+WorkingDirectory=/home/azidanit/MPP-Solar-8048-Automation/5048
+ExecStart=/home/azidanit/anaconda3/envs/lmesh_aggrigation_tester/bin/python3 \
+/home/azidanit/MPP-Solar-8048-Automation/5048/command_loop.py \
+--broker 192.168.1.102 \
+--port 1883 \
+--user sonoff \
+--password sonoff \
+--device_addr /dev/hidraw0 \
+--topic homeassistant/sensor/inverter_1 
 Restart=on-failure
 RestartSec=10
 
