@@ -3,11 +3,14 @@ Description=MPP 8048 1 COMMAND MQTT Client Service
 After=network.target
 
 [Service]
+StandardError=journal
+StandardOutput=journal
 Type=simple
 User=ubuntu
 Group=ubuntu
 WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
 ExecStart=/bin/bash -c "source /home/ubuntu/miniforge3/bin/activate && conda activate iot_mpp8048 && \
+/home/ubuntu/miniforge3/envs/iot_mpp8048/bin/python \
 /home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/8048/command_loop.py \
 --broker 192.168.1.102 \
 --port 1883 \

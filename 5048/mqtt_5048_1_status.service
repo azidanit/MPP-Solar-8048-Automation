@@ -3,6 +3,8 @@ Description=MPP 5048 1 STATUS MQTT Client Service
 After=network.target
 
 [Service]
+StandardError=journal
+StandardOutput=journal
 Type=simple
 User=ubuntu
 Group=ubuntu
