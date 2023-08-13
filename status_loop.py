@@ -77,21 +77,43 @@ def inverter3_status():
         time.sleep(0.5)
         print("\t\t\t\tPUSH 8048 conf done")
 
+def inverter5_status():
+    while True:
+        ############## 8048 #############
+        print("\t\t\t\tPUSH 8048")
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS2 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QMOD -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c Q1 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30 -o mqtt")
+        time.sleep(0.5)
+        print("\t\t\t\tPUSH 8048 done")
+        ############## 8048 #############
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIWS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5_conf -P PI30 -o mqtt")
+        time.sleep(0.5)
+        print("\t\t\t\tPUSH 8048 conf done")
 
 
 t1_status = Thread(target=inverter1_status)
 t2_status = Thread(target=inverter2_status)
 t3_status = Thread(target=inverter3_status)
+t5_status = Thread(target=inverter5_status)
 
 # start the threads
 t1_status.start()
 t2_status.start()
 t3_status.start()
+t5_status.start()
 
 # wait for the threads to complete
 t1_status.join()
 t2_status.join()
 t3_status.join()
+t5_status.join()
 
 # while True:
 
