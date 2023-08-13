@@ -14,7 +14,7 @@ ExecStart=/usr/bin/python \
 --user sonoff \
 --password sonoff \
 --device_addr /dev/ttyUSB1 \
---topic homeassistant/sensor/inverter_5
+--topic homeassistant/sensor/inverter_4
 Restart=on-failure
 RestartSec=10
 

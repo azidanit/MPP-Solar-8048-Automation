@@ -14,7 +14,7 @@ ExecStart=/usr/bin/python \
 --user sonoff \
 --password sonoff \
 --device_addr /dev/ttyUSB0 \
---tag inver4
+--tag inver3
 Restart=on-failure
 RestartSec=10
 
