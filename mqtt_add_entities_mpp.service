@@ -1,0 +1,15 @@
+[Unit]
+Description=MPP SOLAR ALL ADD ENTITIES MQTT Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=your_username
+Group=your_group
+WorkingDirectory=/path/to/script/directory
+ExecStart=/usr/bin/python /path/to/your/script.py
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

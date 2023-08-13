@@ -1,0 +1,22 @@
+[Unit]
+Description=MPP 8048 1 STATUS MQTT Client Service
+After=network.target
+
+[Service]
+Type=simple
+User=your_username
+Group=your_group
+WorkingDirectory=/path/to/script/directory
+ExecStart=/usr/bin/python
+/path/to/your/script.py
+--broker 192.168.1.102
+--port 1883
+--user sonoff
+--password sonoff
+--device_addr /dev/ttyUSB0
+--tag inver4
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
