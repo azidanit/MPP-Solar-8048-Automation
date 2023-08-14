@@ -1,5 +1,5 @@
 [Unit]
-Description=MPP 8048 1 STATUS MQTT Client Service
+Description=MPP 8048 2 STATUS MQTT Client Service
 After=network.target
 
 [Service]
