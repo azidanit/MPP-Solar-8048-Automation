@@ -1,5 +1,5 @@
 [Unit]
-Description=MPP 5048 1 COMMAND MQTT Client Service
+Description=MPP 5048 2 COMMAND MQTT Client Service
 After=network.target
 
 [Service]
