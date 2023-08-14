@@ -13,23 +13,23 @@ def inverter8048_status(device_addr, broker_addr, port, user, password, tag, sle
         ############## 8048 #############
         print("\t\t\t\tPUSH 8048")
         os.system("mpp-solar -p {device_addr} -c QPIGS -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -P PI30MAX -o mqtt".format(device_addr=device_addr, broker_addr=broker_addr, port=port, user=user, password=password, tag=tag))
-        time.sleep(sleep_time)
+        time.sleep(3.5)
         os.system("mpp-solar -p {device_addr} -c QPIGS2 -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -P PI30MAX -o mqtt".format(device_addr=device_addr, broker_addr=broker_addr, port=port, user=user, password=password, tag=tag))
-        time.sleep(sleep_time)
+        time.sleep(3.5)
         os.system("mpp-solar -p {device_addr} -c QMOD -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -P PI30MAX -o mqtt".format(device_addr=device_addr, broker_addr=broker_addr, port=port, user=user, password=password, tag=tag))
-        time.sleep(sleep_time)
+        time.sleep(3.5)
         os.system("mpp-solar -p {device_addr} -c Q1 -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -P PI30 -o mqtt".format(device_addr=device_addr, broker_addr=broker_addr, port=port, user=user, password=password, tag=tag))
-        time.sleep(sleep_time)
+        time.sleep(3.5)
         print("\t\t\t\tPUSH 8048 done")
         ############## 8048 #############
         os.system("mpp-solar -p {device_addr} -c QPIWS -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag} -P PI30MAX -o mqtt".format(device_addr=device_addr, broker_addr=broker_addr, port=port, user=user, password=password, tag=tag))
-        time.sleep(sleep_time)
+        time.sleep(3.5)
         os.system("mpp-solar -p {device_addr} -c QPIRI -q {broker_addr} --mqttport {port} --mqttuser {user} --mqttpass {password} --tag {tag}_conf -P PI30 -o mqtt".format(device_addr=device_addr, broker_addr=broker_addr, port=port, user=user, password=password, tag=tag))
-        time.sleep(sleep_time)
+        time.sleep(3.5)
         print("\t\t\t\tPUSH 8048 conf done")
 
         # random int between 1 and 10, eachtime value is different
-        random_int = random.randint(1, 15)
+        random_int = random.randint(5, 20)
         time.sleep(random_int)
 
 parser = argparse.ArgumentParser(description="MPP-5048 MQTT client script")
