@@ -31,7 +31,7 @@ def on_message(client, userdata, message):
         command_str = message.payload.decode()
         full_str_cmd = "mpp-solar -p {device_addr} -P PI30 -c {cmd}".format(device_addr=device_addr, cmd=command_str)
         os.system(full_str_cmd)
-        time.sleep(0.1)
+        time.sleep(1)
         os.system(full_str_cmd)
  
 
