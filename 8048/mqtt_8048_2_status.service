@@ -17,7 +17,7 @@ ExecStart=/bin/bash -c "source /home/ubuntu/miniforge3/bin/activate && conda act
 --user sonoff \
 --password sonoff \
 --device_addr /dev/ttyUSB1 \
---sleep 39 \
+--sleep 17 \
 --tag inver4"
 Restart=on-failure
 RestartSec=10
