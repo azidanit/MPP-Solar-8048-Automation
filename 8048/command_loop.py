@@ -19,20 +19,43 @@ user = args.user
 password = args.password
 device_addr = args.device_addr
 topic = args.topic
-  
+
+last_command_payload = ""
+counter_last_command = 0
+counter_max_last_command = 100
+
 def on_message(client, userdata, message):
     global device_addr, topic
+    global last_command_payload, counter_last_command, wait_last_command_for_sec
     
     print("Message received: ", message.payload)
     print("Message Topic: ", message.topic)
 
     if message.topic == topic:
-        print("EXEC inv3")
         command_str = message.payload.decode()
+
+        if command_str == last_command_payload:
+            print("SKIPPED SAME COMMAND")
+            counter_last_command += 1
+        else:
+            counter_last_command = 0
+
+        if counter_last_command > counter_max_last_command:
+            print("RESET COUNTER")
+            counter_last_command = 0
+
+        if counter_last_command > 1:
+            print("SKIPPED SAME COMMAND")
+            return
+
+
+        print("EXEC inv3")
+        last_command_payload = command_str
         full_str_cmd = "mpp-solar -p {device_addr} -P PI30 -c {cmd}".format(device_addr=device_addr, cmd=command_str)
         os.system(full_str_cmd)
         time.sleep(1)
         os.system(full_str_cmd)
+        time.sleep(1)
  
 
 def on_connect(client, userdata, flags, rc):
@@ -71,7 +94,7 @@ while not is_mqtt_connected:
         time.sleep(1)
     
   
-client.subscribe(topic)
+# client.subscribe(topic)
 client.loop_forever()        #start the loop
   
 while Connected != True:    #Wait for connection
