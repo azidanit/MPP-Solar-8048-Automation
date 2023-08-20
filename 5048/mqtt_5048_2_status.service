@@ -6,8 +6,8 @@ After=network.target
 StandardError=journal
 StandardOutput=journal
 Type=simple
-User=ubuntu
-Group=ubuntu
+User=root
+Group=root
 WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
 ExecStart=/bin/bash -c "/usr/bin/python \
 /home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/5048/status_loop.py \
