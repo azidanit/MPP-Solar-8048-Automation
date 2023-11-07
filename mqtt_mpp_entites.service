@@ -1,0 +1,18 @@
+[Unit]
+Description=MPP SOLAR ALL ADD ENTITIES MQTT Client Service
+After=network.target
+
+[Service]
+StandardError=journal
+StandardOutput=journal
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
+ExecStart=/bin/bash -c "/usr/bin/python \
+/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/add_entities.py"
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

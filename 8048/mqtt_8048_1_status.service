@@ -1,0 +1,25 @@
+[Unit]
+Description=MPP 8048 1 STATUS MQTT Client Service
+After=network.target
+
+[Service]
+StandardError=journal
+StandardOutput=journal
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation
+ExecStart=/bin/bash -c "/usr/bin/python \
+/home/ubuntu/MPP_rev/MPP-Solar-8048-Automation/8048/status_loop.py \
+--broker 192.168.1.102 \
+--port 1883 \
+--user sonoff \
+--password sonoff \
+--device_addr /dev/ttyUSB0 \
+--sleep 20 \
+--tag inver3"
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -61,6 +61,26 @@ def inverter3_status():
     while True:
         ############## 8048 #############
         print("\t\t\t\tPUSH 8048")
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver3 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS2 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver3 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QMOD -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver3 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c Q1 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver3 -P PI30 -o mqtt")
+        time.sleep(0.5)
+        print("\t\t\t\tPUSH 8048 done")
+        ############## 8048 #############
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIWS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver3 -P PI30MAX -o mqtt")
+        time.sleep(0.5)
+        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver3_conf -P PI30 -o mqtt")
+        time.sleep(0.5)
+        print("\t\t\t\tPUSH 8048 conf done")
+
+def inverter5_status():
+    while True:
+        ############## 8048 #############
+        print("\t\t\t\tPUSH 8048")
         os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver4 -P PI30MAX -o mqtt")
         time.sleep(0.5)
         os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS2 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver4 -P PI30MAX -o mqtt")
@@ -74,26 +94,6 @@ def inverter3_status():
         os.system("mpp-solar -p /dev/ttyUSB0 -c QPIWS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver4 -P PI30MAX -o mqtt")
         time.sleep(0.5)
         os.system("mpp-solar -p /dev/ttyUSB0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver4_conf -P PI30 -o mqtt")
-        time.sleep(0.5)
-        print("\t\t\t\tPUSH 8048 conf done")
-
-def inverter5_status():
-    while True:
-        ############## 8048 #############
-        print("\t\t\t\tPUSH 8048")
-        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
-        time.sleep(0.5)
-        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIGS2 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
-        time.sleep(0.5)
-        os.system("mpp-solar -p /dev/ttyUSB0 -c QMOD -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
-        time.sleep(0.5)
-        os.system("mpp-solar -p /dev/ttyUSB0 -c Q1 -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30 -o mqtt")
-        time.sleep(0.5)
-        print("\t\t\t\tPUSH 8048 done")
-        ############## 8048 #############
-        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIWS -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5 -P PI30MAX -o mqtt")
-        time.sleep(0.5)
-        os.system("mpp-solar -p /dev/ttyUSB0 -c QPIRI -q 192.168.1.102 --mqttuser sonoff --mqttpass sonoff --tag inver5_conf -P PI30 -o mqtt")
         time.sleep(0.5)
         print("\t\t\t\tPUSH 8048 conf done")
 
